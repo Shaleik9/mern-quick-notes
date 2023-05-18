@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/api/users');
+const notesCtrl = require('../../controllers/api/users');
 const ensureLoggedIn = require('../../config/ensureLoggedIn');
 
 // All paths start with '/api/users'
 
 // POST /api/users (create a user - sign up)
-router.post('/', usersCtrl.create);
+router.post('/notes', ensureLoggedIn, notesCtrl.create);
 // POST /api/users/login
-router.post('/login', usersCtrl.login);
+router.delete('/notes/:id', ensureLoggedIn, notesCtrl.delete);
 // GET /api/users/check-token
 // router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
 
