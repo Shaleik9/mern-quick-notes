@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 export default function NoteForm({ addNote }) {
-  const [newNote, setNewNote] = useState([{
+  const [newNote, setNewNote] = useState({
     text: '',
     createdAt: ''
-  }]);
+  });
   const date = Date.now()
 
   function handleAddNote(evt) {
@@ -28,7 +28,7 @@ export default function NoteForm({ addNote }) {
         name='text'
         placeholder='note'
         value={newNote.text}
-        onChange={(evt) => setNewNote(evt.target.value)}
+        onChange={(evt) => setNewNote({ ...newNote, text: evt.target.value })}
         required
         ></input>
         <button type='submit'>ADD NOTE</button>

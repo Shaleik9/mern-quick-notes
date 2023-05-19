@@ -11,7 +11,7 @@ export default function NotesHistoryPage({ notes }) {
   
   return (
     <>
-      <h1>{noteItem}</h1>
+      <h2>{noteItem}</h2>
     </>
   );
 }
